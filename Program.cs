@@ -2,7 +2,7 @@
 
 namespace Comp1003_Mastermind_game
 {
-    class Program
+    class MastermindGame
     {
         
         private static bool Active; //boolean variable to see if the mastermind is active or not
@@ -22,7 +22,9 @@ namespace Comp1003_Mastermind_game
 
         static void Main(string[] args)
         {
-            
+            MastermindGame game = new MastermindGame();
+            string input = string.Empty;
+            Console.WriteLine("Welcome to the Mastermind Game!" + Environment.NewLine + "Please input your command");
         }
 
 

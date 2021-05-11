@@ -14,7 +14,18 @@ namespace Comp1003_Mastermind_game
 
         private static int N; // where the user selects the number of positions
         private static int M; //where the user selects the amount of colors he wants
-        private static int[] stored;
+        private static int[] stored; // stores the secret code number
+        private static int[] guesses; // has the guesses of the player
+        private static string G; //the guess of the playe
+        private static int inputval;
+        private static bool Isitanum;
+        private static int parsingit;
+        private static int whitepegs = 0;
+        private static int blackpegs;
+
+
+
+
 
         static void Main(string[] args)
         {
@@ -64,6 +75,7 @@ namespace Comp1003_Mastermind_game
                 playgame = true;
             }
 
+
         }
 
         private void Gameplay()
@@ -73,7 +85,7 @@ namespace Comp1003_Mastermind_game
             {
                 while (Nvalid == false && Mvalid == false)
                 {
-                    Console.WriteLine(" Select the number of positions you wish to use");
+                    Console.WriteLine("Select the number of positions you wish to use");
                     N = Convert.ToInt32(Console.ReadLine());
                     if (N <= 0) // checking if the number of positions is valid
                     {
@@ -91,7 +103,7 @@ namespace Comp1003_Mastermind_game
 
                 while (Mvalid == false && Nvalid == true)
                 {
-                    Console.WriteLine("Enter the number of colours you wish to use (Maximum = 9"); // printing out number of colours user wishes to enter is number of positions is valid
+                    Console.WriteLine("Enter the number of colours you wish to use (Maximum = 9)"); // printing out number of colours user wishes to enter is number of positions is valid
                     M = Convert.ToInt32(Console.ReadLine());
                     if (M < 1 || M > 9) // checking to see if M is not valid
                     {
@@ -120,6 +132,7 @@ namespace Comp1003_Mastermind_game
                 {
                     int temporary = rand.Next(1, M + 1);
                     stored[i] = temporary;
+
                 }
                 for (int i = 0; i < N; i++)
                 {
@@ -130,15 +143,149 @@ namespace Comp1003_Mastermind_game
                 randomise = true;
 
             }
+            while (Mvalid = true && Nvalid == true && randomise == true)
+            {
+                guesses = new int[N];
+                int guesscount = 0;
+                while (guesscount <= N)
+                {
+                    Console.WriteLine("Enter your guess for position {0}:", guesscount + 1);
+                    inputval = 0;
+                    G = Console.ReadLine();
+                    Isitanum = int.TryParse(G, out inputval);
+                    if(Isitanum =true)
+                    {
+                        guesses[guesscount] = inputval; guesscount++;
+                    }
+                }
+               // for (int i = 0; i < N; i++)
+               // {
+                    
+                   
+                   
+                       
+
+                      //  Console.WriteLine("Enter your guess");
+                           // inputval = 0;
+                       // G = Console.ReadLine();
+                       // Isitanum = int.TryParse(G, out inputval);
+                        //  if (Isitanum && i < N)
+                        //  {
+                       // guesses[i] = inputval;
+                        //   }
+                    
+              //  }
+                    for(int i =0; i < N; i++)
+                    {
+                        for(int j =0; j <N; j++)
+                    {
+                        if (guesses[i] == stored[j])
+                        {
+                            whitepegs += 1; 
+                        }
+
+                    }
+                    }
+
+
+                   
+                   
+
+
+                
+                
+                
+                
+
+                /* for( int i=0; i <N;i++)
+                 {
+
+
+                    storeguessstring = new string[N];
+
+                     storeguessstring[i] = G;
+
+
+                 }
+                 for (int i =0; i< N; i++)
+                 {
+                     try
+                     {
+
+                         guesses = new int[N];
+                         guesses[i] = Int32.Parse(storeguessstring[i].ToString());
+
+                     }
+                     catch 
+                     {
+
+
+                     }
+
+
+                 }
+                 if (guesses == stored)
+                 {
+                     Console.WriteLine("Guess correct you win!");
+                 }
+
+
+                 for (int i =0; i<N; i++)
+                 {
+                     if (guesses[i] == stored[i])
+                     {
+                         Console.WriteLine("Congratulations you have guesssed the code!");
+
+                     }
+                     else
+                     {
+                         Console.WriteLine("Code incorrect please guess again!");
+
+                     }
+                */
+            }
+
+
 
 
 
         }
 
-        private void PositionsandColours(string array)
-        {
 
 
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
-}
+
+
+
+
+
+
+
+
+
+
+}      
+
+    
+
